@@ -1,7 +1,24 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.service.UserServiceImpl;
+
 public class Main {
     public static void main(String[] args) {
-        // реализуйте алгоритм здесь
+
+        UserServiceImpl sqlAction = new UserServiceImpl();
+
+        sqlAction.createUsersTable();
+
+        sqlAction.saveUser("Oleg", "Olegov", (byte) 30);
+        sqlAction.saveUser("Ivan", "Ivanov", (byte) 23);
+        sqlAction.saveUser("Levan", "Gorozia", (byte) 30);
+        sqlAction.saveUser("Shamil", "Ahmedov", (byte) 30);
+
+        System.out.println(sqlAction.getAllUsers());
+
+        sqlAction.cleanUsersTable();
+        sqlAction.dropUsersTable();
+
+
     }
 }
